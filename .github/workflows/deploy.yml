@@ -14,5 +14,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /subsites/todolistapp.koreanskincareproducts.online/
+          server-dir: /subsites/xdcurrency.koreanskincareproducts.online/
           local-dir: ./
