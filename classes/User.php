@@ -108,6 +108,29 @@ class User
 
         return $this;
     }
+public function register()
+{
+    $conn = Db::getConnection();
+    $statement = $conn->prepare("INSERT INTO users (username, email, password, date_created) VALUES (:username, :email, :password, NOW())");
+    $statement->bindValue(':username', $this->username);
+    $statement->bindValue(':email', $this->email);
+    $statement->bindValue(':password', $this->password);
+    $statement->execute();
 
+    $userId = $conn->lastInsertId();
+
+    $statement2 = $conn->prepare("INSERT INTO profiles (user_id, first_name, last_name) VALUES (:user_id, :first_name, :last_name)");
+    $statement2->bindValue(':user_id', $userId);
+    $statement2->bindValue(':first_name', "");
+    $statement2->bindValue(':last_name', "");
+    $statement2->execute();
+
+   $statement3 = $conn->prepare("INSERT INTO balances (user_id, amount, date_updated) VALUES (:user_id, :amount, NOW())");
+    $statement3->bindValue(':user_id', $userId);
+    $statement3->bindValue(':amount', 10);
+    $statement3->execute(); 
+
+    return true;
+}
 }
 
