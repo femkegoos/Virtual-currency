@@ -132,5 +132,23 @@ public function register()
 
     return true;
 }
-}
 
+//login methode
+
+public function login($plainPassword)
+{
+    $conn = Db::getConnection();
+    $statement = $conn->prepare("SELECT * FROM users WHERE email = :email");
+    $statement->bindValue(':email', $this->email);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    if (!$user) {
+        return false;
+    }
+    if (password_verify($plainPassword, $user['password'])) {
+        return $user;
+    } else {
+        return false;
+    }
+}
+}
