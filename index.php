@@ -17,7 +17,7 @@
     <a href="register.php"><img class="profile" alt="this the icon of the profile page" src="img/XD_currency_icons_profile.png"></a>
     <a href="transfer.php"><img class="transfer" alt="this the icon of the transfer page" src="img/XD_currency_icons_transfer.png"></a>
     <a href="list.php"><img class="list" alt="this the icon of the list page" src="img/XD_currency_icons_list.png"></a>
-
+</nav>
     
 </div>
 
