@@ -25,7 +25,10 @@ class User
      */ 
     public function setUsername($username)
     {
-        $this->username = $username;
+        if (empty($username)) {
+            throw new Exception("Username mag niet leeg zijn!");
+        } 
+    $this->username = $username;
 
         return $this;
     }
@@ -45,6 +48,12 @@ class User
      */ 
     public function setEmail($email)
     {
+        if (empty($email)) {
+            throw new Exception("Email mag niet leeg zijn!");
+        }
+        if (!str_ends_with($email, "@student.thomasmore.be")) {
+            throw new Exception("Email moet eindigen met @student.thomasmore.be");
+        }
         $this->email = $email;
 
         return $this;
@@ -65,9 +74,27 @@ class User
      */ 
     public function setPassword($password)
     {
-        $this->password = $password;
+        if (empty($password)) {
+            throw new Exception("Wachtwoord mag niet leeg zijn!");
+        }
+        if (strlen($password) < 5) {
+            throw new Exception("Wachtwoord moet minstens 5 karakters bevatten!");
+        }
+        $options = ['cost' => 14];
+        $this->password = password_hash($password, PASSWORD_DEFAULT, $options);
 
         return $this;
+    }
+
+
+
+
+    /**
+     * Get the value of date_created
+     */ 
+    public function getDate_created()
+    {
+        return $this->date_created;
     }
 
     /**
@@ -81,4 +108,6 @@ class User
 
         return $this;
     }
+
 }
+
