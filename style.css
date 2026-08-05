@@ -46,7 +46,7 @@ background-color: #2e319255;
 .register-container label{
       font-family: "Helvetica";
     font-size: 16px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
 
 }
 
@@ -65,7 +65,7 @@ background-color: #2e319255;
     background-color: #fff;
     color: #2e3192;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
     margin-top: 10px;
 
