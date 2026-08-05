@@ -7,11 +7,13 @@ align-items: center;
 background-color: #2e319255;
 
 }
-.bottom-nav img{
-   
-    width: 60px;
+.bottom-nav .transfer, .bottom-nav .list , .bottom-nav .profile{
+    width: 40px;
     padding-top: 10px;
     padding-bottom:10px;
+} 
+.bottom-nav .logo {
+    width: 60px;
 } 
 .bottom-nav{
     position: fixed;
@@ -37,7 +39,8 @@ background-color: #2e319255;
 .register-container{
      background-color: #2e3192;
     color: #fff;
-    padding: 50px;
+    padding: 64px;
+    margin-top:32px;
 }
 
 .register-container h1{
