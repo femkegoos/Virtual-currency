@@ -40,6 +40,12 @@ background-color: #2e319255;
 
 .register-container h1{
       font-family: "Goldich";
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 20px;
+}
+.register-container label{
+      font-family: "Helvetica";
+    font-size: 20px;
+    margin-bottom: 10px;
+    
 }

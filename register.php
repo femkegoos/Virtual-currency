@@ -19,7 +19,7 @@
 </nav>
 <div class="container-account">
 <div class="register-container">
-    <h1>Registreer</h1>
+    <h1>Maak een account</h1>
     <form action="" method="post">
         <label for="username">Username:</label>
         <input type="text" name="username" required><br>
