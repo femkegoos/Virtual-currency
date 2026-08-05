@@ -7,5 +7,20 @@ align-items: center;
 
 }
 .bottom-nav img{
+   
     width: 80px;
+} 
+.bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    background-color: #fff;
+    z-index: 9999;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
 }
