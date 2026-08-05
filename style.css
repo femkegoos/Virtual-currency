@@ -4,11 +4,12 @@ font-weight: 500;
 font-style: normal;
  margin: 0px;
 align-items: center;
+background-color: #2e319255;
 
 }
 .bottom-nav img{
    
-    width: 80px;
+    width: 60px;
 } 
 .bottom-nav{
     position: fixed;
@@ -23,4 +24,12 @@ align-items: center;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
+}
+
+.register-container{
+    background-color: #2e3192;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
