@@ -27,9 +27,19 @@ background-color: #2e319255;
 }
 
 .container-account{
-    background-color: #2e3192;
-    color: #fff;
-    padding: 20px;
+   
     display: flex;
     justify-content: center;
+}
+
+.register-container{
+     background-color: #2e3192;
+    color: #fff;
+    padding: 20px;
+}
+
+.register-container h1{
+      font-family: "Goldich";
+    font-size: 24px;
+    margin-bottom: 20px;
 }
