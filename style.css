@@ -45,7 +45,19 @@ background-color: #2e319255;
 }
 .register-container label{
       font-family: "Helvetica";
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 10px;
-    
+
+}
+
+.register-container input{
+      font-family: "Helvetica";
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 0px;
+    background-color: #2e319255;
+    color: #fff;
+
+
 }

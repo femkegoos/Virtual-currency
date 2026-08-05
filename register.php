@@ -21,13 +21,13 @@
 <div class="register-container">
     <h1>Maak een account</h1>
     <form action="" method="post">
-        <label for="username">Username:</label>
+        <label for="username">Username:</label><br>
         <input type="text" name="username" required><br>
 
-        <label for="email">Email:</label>
+        <label for="email">Email:</label><br>
         <input type="email" name="email" required><br>
 
-        <label for="password">Password:</label>
+        <label for="password">Password:</label><br>
         <input type="password" name="password" required><br>
 
         <input type="submit" value="Registreer">
