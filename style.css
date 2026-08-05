@@ -40,6 +40,7 @@ background-color: #2e319255;
      background-color: #2e3192;
     color: #fff;
     width:70%;
+    align-items: center;
     padding: 32px;
     margin-top:32px;
 }
