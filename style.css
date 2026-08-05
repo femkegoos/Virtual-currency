@@ -46,7 +46,7 @@ background-color: #2e319255;
 .register-container label{
       font-family: "Helvetica";
     font-size: 16px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 
 }
 
@@ -58,6 +58,15 @@ background-color: #2e319255;
     border-radius: 0px;
     background-color: #ffffff55;
     color: #fff;
-
+}
+.register-container .btn{
+    font-family: "Helvetica";
+    font-size: 16px;
+    background-color: #fff;
+    color: #2e3192;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
 
 }
