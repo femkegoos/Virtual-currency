@@ -51,7 +51,7 @@ background-color: #2e319255;
 
 }
 .form{
-    width: 275px;
+    width: 290px;
      margin: 0 auto;
 }
 
@@ -90,8 +90,6 @@ background-color: #2e319255;
 .container .link{
     color: #fff;
     margin-left: 10px;
-    text-decoration: none;
-    font-weight: 700;
 }
 
 .error{
