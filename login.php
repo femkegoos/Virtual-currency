@@ -8,7 +8,7 @@ if (!empty($_POST)) {
         $user = new User();
         $user->setEmail($_POST['email']);
         $plainPassword = $_POST['password'];
-        $result = $user->loggin($plainPassword);
+        $result = $user->login($plainPassword);
         if($result) {
             $_SESSION['email'] = $result['email'];
             $_SESSION['username'] = $result['username'];
