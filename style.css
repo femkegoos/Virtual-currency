@@ -40,13 +40,14 @@ background-color: #2e319255;
      background-color: #2e3192;
     color: #fff;
     width:60%;
-    align-items: center;
     margin-top:32px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .register-form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
