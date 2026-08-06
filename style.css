@@ -43,6 +43,9 @@ background-color: #2e319255;
     margin-top:32px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    align-items: center;
+
 }
 .register-form{
     display: flex;
