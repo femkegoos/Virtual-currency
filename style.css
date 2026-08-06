@@ -43,12 +43,11 @@ background-color: #2e319255;
     margin-top:32px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
 
 }
 .register-form{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     width: 60%;
 }
 
