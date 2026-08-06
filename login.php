@@ -1,3 +1,29 @@
+<?php
+session_start();
+include_once(__DIR__ . '/classes/Db.php');
+include_once(__DIR__ . '/classes/User.php');
+
+if (!empty($_POST)) {
+    try {
+        $user = new User();
+        $user->setEmail($_POST['email']);
+        $plainPassword = $_POST['password'];
+        $result = $user->login($plainPassword);
+        if($result) {
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['username'] = $result['username'];
+            $_SESSION['id'] = $result['id'];
+            exit;
+        } else {
+            $error = "Ongeldige inloggegevens! Je email of wachtwoord is incorrect.";
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
