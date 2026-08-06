@@ -52,6 +52,7 @@ background-color: #2e319255;
 }
 .register-form{
     width: 80%;
+     margin: 0 auto;
 }
 
 .register-container h1{
