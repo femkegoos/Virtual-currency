@@ -65,7 +65,7 @@ if(!empty($_POST)) {
         }?>
 
     </form>
-    <p>Heb je al een account? <a href="login.php">Log in</a></p>
+    <p>Heb je al een account? <a class="link" href="login.php">Log in</a></p>
     </div>
 </div>
 </div>
