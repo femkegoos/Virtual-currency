@@ -39,11 +39,9 @@ background-color: #2e319255;
 .register-container{
      background-color: #2e3192;
     color: #fff;
-    width:70%;
+    width:60%;
+    margin: 0 auto;
     align-items: center;
-    justify-content: center;
-
-    padding: 32px;
     margin-top:32px;
 }
 
