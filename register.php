@@ -1,3 +1,31 @@
+<?php
+session_start();
+include_once(__DIR__ . '/classes/Db.php');
+include_once(__DIR__ . '/classes/User.php');
+
+if(!empty($_POST)) {
+    try{
+        $user = new User();
+        $user->setUsername($_POST['username']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
+        $existing = $user->checkEmailExists($_POST['email']);
+        if($existing) {
+           $error = "Deze email is al in gebruik!";
+           } else {
+            if($user-> register()){
+                header("Location: login.php");
+                exit;
+            } else {
+                $error = "Er is iets misgegaan bij het registreren! Probeer het opnieuw.";
+            }
+           }
+} catch (Exception $e) {
+    $error = $e->getMessage();
+}
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +50,20 @@
     <div class="register-form">
     <h1>Maak een account</h1>
     <form action="" method="post">
-        <label for="username">Username:</label><br>
+        <label for="username">Gebruikersnaam:</label><br>
         <input type="text" name="username" required><br>
 
         <label for="email">Email:</label><br>
         <input type="email" name="email" required><br>
 
-        <label for="password">Password:</label><br>
+        <label for="password">Wachtwoord:</label><br>
         <input type="password" name="password" required><br>
 
         <input class="btn" type="submit" value="Registreer">
+        <?php if (isset($error)) {
+            echo "<p class='error'>" . htmlspecialchars($error) . "</p>";
+        }?>
+
     </form>
     </div>
 </div>
