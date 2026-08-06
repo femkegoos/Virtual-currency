@@ -48,7 +48,7 @@ background-color: #2e319255;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    width: 100%;
 }
 
 .register-container h1{
