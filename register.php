@@ -19,6 +19,7 @@
 </nav>
 <div class="container-account">
 <div class="register-container">
+    <div class="register-form">
     <h1>Maak een account</h1>
     <form action="" method="post">
         <label for="username">Username:</label><br>
@@ -32,6 +33,7 @@
 
         <input class="btn" type="submit" value="Registreer">
     </form>
+    </div>
 </div>
 </div>
     

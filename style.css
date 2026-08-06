@@ -40,9 +40,14 @@ background-color: #2e319255;
      background-color: #2e3192;
     color: #fff;
     width:60%;
-    margin: 0 auto;
     align-items: center;
     margin-top:32px;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .register-container h1{
