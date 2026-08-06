@@ -8,14 +8,14 @@ if (!empty($_POST)) {
         $user = new User();
         $user->setEmail($_POST['email']);
         $plainPassword = $_POST['password'];
-        $result = $user->login($plainPassword);
+        $result = $user->loggin($plainPassword);
         if($result) {
             $_SESSION['email'] = $result['email'];
             $_SESSION['username'] = $result['username'];
             $_SESSION['id'] = $result['id'];
             exit;
         } else {
-            $error = "Ongeldige inloggegevens! Je email of wachtwoord is incorrect.";
+            $error = "Ongeldige inloggegevens!" . nl2br(" Je email of wachtwoord is incorrect.");
         }
     } catch (Exception $e) {
         $error = $e->getMessage();
