@@ -36,7 +36,7 @@ background-color: #2e319255;
     justify-content: center;
 }
 
-.register-container{
+.container{
      background-color: #2e3192;
     color: #fff;
     width:90%;
@@ -50,23 +50,23 @@ background-color: #2e319255;
     
 
 }
-.register-form{
+.form{
     width: 275px;
      margin: 0 auto;
 }
 
-.register-container h1{
+.container h1{
       font-family: "Goldich";
     font-size: 32px;
     margin-bottom: 20px;
 }
-.register-container label{
+.container label{
       font-family: "Helvetica";
     font-size: 16px;
 
 }
 
-.register-container input{
+.container input{
       font-family: "Helvetica";
     font-size: 16px;
     margin-bottom: 10px;
@@ -76,7 +76,7 @@ background-color: #2e319255;
     background-color: #ffffff55;
     color: #fff;
 }
-.register-container .btn{
+.container .btn{
     font-family: "Helvetica";
     font-size: 16px;
     background-color: #fff;

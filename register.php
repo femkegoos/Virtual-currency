@@ -46,8 +46,8 @@ if(!empty($_POST)) {
     <a href="list.php"><img class="list" alt="this the icon of the list page" src="img/XD_currency_icons_list.png"></a>
 </nav>
 <div class="container-account">
-<div class="register-container">
-    <div class="register-form">
+<div class="container">
+    <div class="form">
     <h1>Maak een account</h1>
     <form action="" method="post">
         <label for="username">Gebruikersnaam:</label><br>
