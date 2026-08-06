@@ -87,3 +87,10 @@ background-color: #2e319255;
     margin-top: 10px;
 
 }
+
+.error{
+    padding: 10px;
+    border: 1px solid red;
+    background-color: #ff00003b;
+    color: rgb(255, 255, 255);
+}
