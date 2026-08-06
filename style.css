@@ -45,13 +45,13 @@ background-color: #2e319255;
     margin-right: auto;
     display: flex;
     justify-content: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 64px;
+    padding-bottom: 64px;
     
 
 }
 .register-form{
-    width: 300px;
+    width: 275px;
      margin: 0 auto;
 }
 
