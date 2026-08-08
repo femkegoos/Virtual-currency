@@ -1,3 +1,13 @@
+<?php
+session_start();
+include_once(__DIR__ . '/classes/Db.php');
+include_once(__DIR__ . '/classes/User.php');
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
