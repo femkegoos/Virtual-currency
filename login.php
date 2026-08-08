@@ -13,6 +13,7 @@ if (!empty($_POST)) {
             $_SESSION['email'] = $result['email'];
             $_SESSION['username'] = $result['username'];
             $_SESSION['id'] = $result['id'];
+            header("Location: index.php");
             exit;
         } else {
             $error = "Ongeldige inloggegevens! Je email of wachtwoord is incorrect.";
