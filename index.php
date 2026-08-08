@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . 'nav.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include_once(__DIR__ . 'nav.php');
 
 
 <body>
-
+  <?php include_once(__DIR__ . 'nav.php'); ?>
 
 </body>
 
