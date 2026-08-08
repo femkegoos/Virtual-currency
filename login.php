@@ -15,7 +15,7 @@ if (!empty($_POST)) {
             $_SESSION['id'] = $result['id'];
             exit;
         } else {
-            $error = "Ongeldige inloggegevens!<br>Je email of wachtwoord is incorrect.";
+            $error = "Ongeldige inloggegevens! Je email of wachtwoord is incorrect.";
         }
     } catch (Exception $e) {
         $error = $e->getMessage();
