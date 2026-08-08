@@ -14,7 +14,7 @@
 
 
 <body>
-  <?php include_once(__DIR__ . 'nav.php'); ?>
+  <?php include_once(__DIR__ . '/nav.php'); ?>
 
 </body>
 

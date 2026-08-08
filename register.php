@@ -39,7 +39,7 @@ if(!empty($_POST)) {
 </head>
 
 <body>
-  <?php include_once(__DIR__ . 'nav.php'); ?>
+  <?php include_once(__DIR__ . '/nav.php'); ?>
 <div class="container-account">
 <div class="container">
     <div class="form">
