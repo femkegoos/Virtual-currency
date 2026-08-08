@@ -1,3 +1,11 @@
+<header class="top-nav">
+    <div class="nav-container">
+   <p class="saldo">Saldo: <?php echo htmlspecialchars($_SESSION['balance']); ?> XD</p>
+   <a href="logout.php"><img class="logout" alt="this the icon of the logout page" src="img/XD_currency_icons_logout.png"></a>
+    </div>
+</header>
+  
+  
   <nav class="bottom-nav">
     <div class="nav-container">
     <a href="index.php"><img class="logo" alt="this is the logo of the XD Currency app" src="img/XD_currency_logo.png"></a>
