@@ -94,13 +94,13 @@ background-color: #2e319255;
 
 .logout{
     width: 70px;
-    
+
 }
 .top-nav{
     position: fixed;
     top: 0;
     left: 0;
-    width: 80%;
+    width: 100%;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
