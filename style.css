@@ -22,6 +22,8 @@ background-color: #2e319255;
     width:100%;
     background-color: #fff;
     z-index: 9999;
+       align-items: center;
+    text-align: center;
 }
 .nav-container{
     display: flex;
