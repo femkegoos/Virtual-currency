@@ -21,13 +21,12 @@ if (!isset($_SESSION['id'])) {
 <body>
       <?php include_once(__DIR__ . '/nav.php'); ?>
 
-<div class="container-account">
 <div class="profile-container">
-    <p class="profile-name">Gebruikersnaam: <?php echo htmlspecialchars($_SESSION['username']); ?></p>
+    <p class="profile-name"><?php echo htmlspecialchars($_SESSION['username']); ?></p>
     <p class="profile-email"><?php echo htmlspecialchars($_SESSION['email']); ?></p>
     <p class="profile-balance"><?php echo htmlspecialchars($_SESSION['balance']); ?> XD</p>
    <a class="link" href="logout.php">Uitloggen</a>
-</div>
+
 </div>
     
 </body>
