@@ -8,12 +8,12 @@ background-color: #2e319255;
 
 }
 .bottom-nav .transfer, .bottom-nav .list , .bottom-nav .profile{
-    width: 40px;
+    width: 60px;
     padding-top: 10px;
     padding-bottom:10px;
 } 
 .bottom-nav .logo {
-    width: 60px;
+    width: 80px;
 } 
 .bottom-nav{
     position: fixed;
