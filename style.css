@@ -133,10 +133,15 @@ background-color: #2e319255;
 .profile-container{
     width: 290px;
     align-items: center;
+    text-align: center;
     background-color: #2e3192;
     color: #fff;
     width:90%;
     margin-top:64px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
     padding-top: 50px;
     padding-bottom: 64px;
 }
