@@ -83,6 +83,9 @@ background-color: #2e319255;
     color: #fff;
     padding:8px;
 }
+.container option{
+    color: #2e3192;
+}
 .container .btn{
     font-family: "Helvetica";
     font-size: 16px;
