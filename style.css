@@ -153,7 +153,7 @@ background-color: #2e319255;
     font-weight: bold;
     font-size: 18px;
     padding-bottom: 10px;
-    display: block;
+    display: inline-block;
 }
 
 .transaction-datum{
