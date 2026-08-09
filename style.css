@@ -135,32 +135,7 @@ background-color: #2e319255;
     text-align: center;
     border-radius: 5px;
 }
-.profile-container{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #2e3192;
-    color: #fff;
-    width:60%;
-    margin-top:64px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 64px;
-    
-}
-.profile-name{
-    font-family: "Goldich";
-    font-size: 72px;
-    margin-bottom: 20px;
-}
-.profile-balance{
-    font-family: "helvetica";
-    font-size: 64px;
-    margin-bottom: 20px;
-}
+
 .user-info{
     display: flex;
     align-items: center;
@@ -183,4 +158,7 @@ background-color: #2e319255;
 .transaction-datum{
     font-style: italic;
     margin-top: -10px;
+}
+.all-transactions{
+    width: 80%;
 }
