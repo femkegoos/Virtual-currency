@@ -7,6 +7,7 @@ class User
     private $email;
     private $password;
     private $date_created;
+    private $balance;
 
 
 
@@ -157,4 +158,35 @@ public function checkEmailExists($email) {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
+    /**
+     * Get the value of balance
+     */ 
+    public function getBalance()
+    {
+        return $this->balance;
+    }
+
+    /**
+     * Set the value of balance
+     *
+     * @return  self
+     */ 
+    public function setBalance($balance)
+    {
+        if ($balance < 0) {
+            throw new Exception("Saldo kan niet negatief zijn!");
+        }
+        $this->balance = $balance;
+        return $this;
+    }
+    public static function getBalanceByUserId($userId)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT amount FROM balances WHERE user_id = :user_id");
+        $statement->bindValue(':user_id', $userId);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result['amount'];
+    }
 }
