@@ -133,4 +133,15 @@ background-color: #2e319255;
 .profile-container{
     width: 290px;
      margin: 0 auto;
+    align-items: center;
+}
+.profile-name{
+    font-family: "Goldich";
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+.profile-balance{
+    font-family: "helvetica";
+    font-size: 64px;
+    margin-bottom: 20px;
 }
