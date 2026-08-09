@@ -1,3 +1,15 @@
+<?php
+session_start();
+include_once(__DIR__ . '/classes/Db.php');
+include_once(__DIR__ . '/classes/User.php');
+
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +21,7 @@
 </head>
 
 <body>
-     <?php include_once(__DIR__ . '/nav.php'); ?>
-
+    <?php include_once(__DIR__ . '/nav.php'); ?>
 
      <div class="container-account">
   <div class="container">
@@ -31,7 +42,7 @@
         <label for="reason">Reden:</label><br>
         <input type="text" name="reason" id="reason" required><br>
 
-        <input class="btn" type="submit" value="Inloggen">
+        <input class="btn" type="submit" value="Verzenden">
         <?php if (isset($error)) {
             echo "<p class='error'>" . htmlspecialchars($error) . "</p>";
         }?>
