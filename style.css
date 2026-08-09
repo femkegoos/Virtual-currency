@@ -152,10 +152,13 @@ background-color: #2e319255;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
-    padding-bottom: 10px;
-    display: inline-block;
+    display: block;
 }
-
+.transaction-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .transaction-datum{
     font-style: italic;
     margin-top: -10px;
