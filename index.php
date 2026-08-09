@@ -26,7 +26,7 @@ if (!isset($_SESSION['id'])) {
   <div class="container">
     <div class="all-transactions">
     <h1>Welkom <?php echo htmlspecialchars($_SESSION['username']); ?> bij XD Currency!</h1>
-    <h1>Transacties</h1>
+    <h1 class="all-transactions-h1">Transacties</h1>
     <div class="transaction-list">
        <a href="transfer.php?id=1" class="transaction link"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
        <p class="transaction-datum">Maandag 9 April 2026</p>
