@@ -26,8 +26,10 @@ class Transaction
      */ 
     public function setSender_id($sender_id)
     {
+        if (empty($sender_id)) {
+            throw new Exception("Verzender mag niet leeg zijn!");
+        }
         $this->sender_id = $sender_id;
-
         return $this;
     }
 
@@ -46,8 +48,10 @@ class Transaction
      */ 
     public function setReceiver_id($receiver_id)
     {
+        if (empty($receiver_id)) {
+            throw new Exception("Ontvanger mag niet leeg zijn!");
+        }
         $this->receiver_id = $receiver_id;
-
         return $this;
     }
 
@@ -66,6 +70,12 @@ class Transaction
      */ 
     public function setAmount($amount)
     {
+        if (empty($amount)) {
+            throw new Exception("Bedrag mag niet leeg zijn!");
+        }
+        if ($amount < 1) {
+            throw new Exception("Bedrag moet groter zijn dan 1!");
+        }
         $this->amount = $amount;
 
         return $this;
@@ -86,6 +96,9 @@ class Transaction
      */ 
     public function setReason($reason)
     {
+        if (empty($reason)) {
+            throw new Exception("Reden mag niet leeg zijn!");
+        }
         $this->reason = $reason;
 
         return $this;
