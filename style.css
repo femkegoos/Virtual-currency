@@ -144,6 +144,7 @@ background-color: #2e319255;
     justify-content: center;
     padding-top: 50px;
     padding-bottom: 64px;
+    flex-direction: column;
 }
 .profile-name{
     font-family: "Goldich";
