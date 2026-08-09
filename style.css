@@ -175,5 +175,10 @@ background-color: #2e319255;
 }
 .transaction{
     text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
 
+.transaction-datum{
+    font-family: "helvetica italic";
 }
