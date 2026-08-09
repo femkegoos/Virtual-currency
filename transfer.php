@@ -40,7 +40,7 @@ if (!isset($_SESSION['id'])) {
         <label for="amount">Bedrag:</label><br>
         <input type="number" name="amount" id="amount" step="0.01" min="1" required><br>
         <label for="reason">Reden:</label><br>
-        <input type="textarea" name="reason" id="reason" required><br>
+        <textarea name="reason" id="reason" required></textarea><br>
 
         <input class="btn" type="submit" value="Verzenden">
         <?php if (isset($error)) {
