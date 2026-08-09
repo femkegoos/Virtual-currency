@@ -151,8 +151,8 @@ background-color: #2e319255;
 .transaction{
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 32px;
+    font-size: 18px;
+    margin-bottom: 46px;
 }
 
 .transaction-datum{
@@ -161,4 +161,9 @@ background-color: #2e319255;
 }
 .all-transactions{
     width: 80%;
+}
+.all-transactions h1{
+    font-family: "Goldich";
+    font-size: 64px;
+    margin-bottom: 20px;
 }
