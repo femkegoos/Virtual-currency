@@ -176,9 +176,11 @@ background-color: #2e319255;
 .transaction{
     text-decoration: none;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 24px;
 }
 
 .transaction-datum{
     font-style: italic;
+    margin-top: -10px;
 }
