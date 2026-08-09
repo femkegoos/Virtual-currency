@@ -23,12 +23,14 @@ if (!isset($_SESSION['id'])) {
 
 <div class="container-account">
 <div class="container">
+    <div class="profile-container">
    
     <h1>Mijn profiel</h1>
     <p>Gebruikersnaam: <?php echo htmlspecialchars($_SESSION['username']); ?></p>
     <p>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></p>
     <p>saldo: <?php echo htmlspecialchars($_SESSION['balance']); ?> XD</p>
    <a class="link" href="logout.php">Uitloggen</a>
+    </div>
 </div>
 </div>
     
