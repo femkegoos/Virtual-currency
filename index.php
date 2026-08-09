@@ -22,6 +22,28 @@ if (!isset($_SESSION['id'])) {
 
 <body>
   <?php include_once(__DIR__ . '/nav.php'); ?>
+  <div class="container-account">
+  <div class="container">
+    <h1>Welkom <?php echo htmlspecialchars($_SESSION['username']); ?>, bij XD Currency!</h1>
+    <h1>Transacties</h1>
+    <div class="transaction-list">
+       <a href="transfer.php?id=1" class="transaction"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
+       <p class="transaction-datum">Maandag 9 April 2026</p>
+       </a>
+
+       <a href="transfer.php?id=1" class="transaction"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
+       <p class="transaction-datum">Maandag 9 April 2026</p>
+       </a>
+
+       <a href="transfer.php?id=1" class="transaction"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
+       <p class="transaction-datum">Maandag 9 April 2026</p>
+       </a>
+
+    </div>
+  </div>
+  </div>
+  
+    
 
 </body>
 
