@@ -11,9 +11,11 @@
 <body>
      <?php include_once(__DIR__ . '/nav.php'); ?>
 
-<div class="container">
-    <div class="form">
-    <h2>Stuur XD currency</h2>
+
+     <div class="container-account">
+  <div class="container">
+    <div class="content">
+     <h2>Stuur XD currency</h2>
     <form action="" method="post">
        
         <label for="receiver">Ontvanger:</label><br>
@@ -37,7 +39,8 @@
     </form>
     <p>Heb je nog geen account? <a class="link" href="register.php">Registreer</a></p>
     </div>
-</div>
+  </div>
+  </div>
     
 </body>
 </html>

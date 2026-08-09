@@ -24,7 +24,7 @@ if (!isset($_SESSION['id'])) {
   <?php include_once(__DIR__ . '/nav.php'); ?>
   <div class="container-account">
   <div class="container">
-    <div class="all-transactions">
+    <div class="content">
     <h2>Welkom <?php echo htmlspecialchars($_SESSION['username']); ?><br>bij XD Currency!</h2>
     <h1>Jouw transacties</h1>
     <div class="transaction-list">
