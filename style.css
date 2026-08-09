@@ -166,7 +166,7 @@ background-color: #2e319255;
 .all-transactions{
     width: 80%;
 }
-.all-transactions-title{
+h2 {
     font-family: "Goldich";
     font-size: 64px;
 }

@@ -13,7 +13,7 @@
 <div class="container-account">
 <div class="container">
     <div class="form">
-    <h1>Stuur XD currency</h1>
+    <h2>Stuur XD currency</h2>
     <form action="" method="post">
        
         <label for="receiver">Ontvanger:</label><br>
