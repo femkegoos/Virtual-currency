@@ -8,6 +8,32 @@ if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
+
+if (!empty($_POST)){
+    try{
+        $transaction = new Transaction();
+        $transaction->setSender_id($_SESSION['id']);
+        $transaction->setReceiver_id($_POST['receiver']);
+        $transaction->setAmount($_POST['amount']);
+        $transaction->setReason($_POST['reason']);
+
+        $balance = User::getBalanceByUserId($_SESSION['id']);
+        if ($_POST['amount'] > $balance) {
+            $error = "Je hebt niet genoeg saldo";
+        } else {
+            if($transaction->save()){
+                $_SESSION['balance'] = User::getBalanceByUserId($_SESSION['id']);
+                header("Location: index.php");
+                exit;
+             } else {
+                $error = "Er is iets misgegaan! Probeer opnieuw.";
+             }
+        }
+
+    } catch (Exception $e){
+        $error = $e->getMessage();
+    }
+}
 ?>
 
 

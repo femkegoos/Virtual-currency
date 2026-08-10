@@ -143,7 +143,7 @@ class Transaction
         /**
          * Saldo in database van de verzender verminderen
          */
-        $statement2 = $conn->prepare("UPDATE balance SET amount = amount - :amount, date_updated = NOW() WHERE user_id = :user_id");
+        $statement2 = $conn->prepare("UPDATE balances SET amount = amount - :amount, date_updated = NOW() WHERE user_id = :user_id");
         $statement2->bindValue(':amount', $this->amount);
         $statement2->bindValue(':user_id', $this->sender_id);
         $statement2->execute();
@@ -151,7 +151,7 @@ class Transaction
              /**
          * Saldo in database van de ontvanger verhogen
          */
-        $statement3 = $conn->prepare("UPDATE balance SET amount = amount + :amount, date_updated = NOW() WHERE user_id = :user_id");
+        $statement3 = $conn->prepare("UPDATE balances SET amount = amount + :amount, date_updated = NOW() WHERE user_id = :user_id");
         $statement3->bindValue(':amount', $this->amount);
         $statement3->bindValue(':user_id', $this->receiver_id);
         $statement3->execute();
