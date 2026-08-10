@@ -48,7 +48,6 @@ if (!isset($_SESSION['id'])) {
         }?>
 
     </form>
-    <p>Heb je nog geen account? <a class="link" href="register.php">Registreer</a></p>
     </div>
   </div>
   </div>

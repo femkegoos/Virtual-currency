@@ -9,11 +9,11 @@ class Transaction
     private $reason;
     private $date_created;
 
-    
+
 
     /**
      * Get the value of sender_id
-     */ 
+     */
     public function getSender_id()
     {
         return $this->sender_id;
@@ -23,7 +23,7 @@ class Transaction
      * Set the value of sender_id
      *
      * @return  self
-     */ 
+     */
     public function setSender_id($sender_id)
     {
         if (empty($sender_id)) {
@@ -35,7 +35,7 @@ class Transaction
 
     /**
      * Get the value of receiver_id
-     */ 
+     */
     public function getReceiver_id()
     {
         return $this->receiver_id;
@@ -45,7 +45,7 @@ class Transaction
      * Set the value of receiver_id
      *
      * @return  self
-     */ 
+     */
     public function setReceiver_id($receiver_id)
     {
         if (empty($receiver_id)) {
@@ -57,7 +57,7 @@ class Transaction
 
     /**
      * Get the value of amount
-     */ 
+     */
     public function getAmount()
     {
         return $this->amount;
@@ -67,7 +67,7 @@ class Transaction
      * Set the value of amount
      *
      * @return  self
-     */ 
+     */
     public function setAmount($amount)
     {
         if (empty($amount)) {
@@ -83,7 +83,7 @@ class Transaction
 
     /**
      * Get the value of reason
-     */ 
+     */
     public function getReason()
     {
         return $this->reason;
@@ -93,7 +93,7 @@ class Transaction
      * Set the value of reason
      *
      * @return  self
-     */ 
+     */
     public function setReason($reason)
     {
         if (empty($reason)) {
@@ -106,7 +106,7 @@ class Transaction
 
     /**
      * Get the value of date_created
-     */ 
+     */
     public function getDate_created()
     {
         return $this->date_created;
@@ -116,11 +116,46 @@ class Transaction
      * Set the value of date_created
      *
      * @return  self
-     */ 
+     */
     public function setDate_created($date_created)
     {
         $this->date_created = $date_created;
 
         return $this;
+    }
+
+    /**
+     * Wat gebeurd er na het drukken op de verzend knop
+     */
+    public function save()
+    {
+        $conn = Db::getConnection();
+        /**
+         * Transactie opslaan in de database van transactions
+         */
+        $statement = $conn->prepare("INSERT INTO transactions (sender_id, receiver_id, amount, reason, date_created) VALUES (:sender_id, :receiver_id, :amount, :reason, NOW())");
+        $statement->bindValue(':sender_id', $this->sender_id);
+        $statement->bindValue(':receiver_id', $this->receiver_id);
+        $statement->bindValue(':amount', $this->amount);
+        $statement->bindValue(':reason', $this->reason);
+        $statement->execute();
+
+        /**
+         * Saldo in database van de verzender verminderen
+         */
+        $statement2 = $conn->prepare("UPDATE balance SET amount = amount - :amount, date_updated = NOW() WHERE user_id = :user_id");
+        $statement2->bindValue(':amount', $this->amount);
+        $statement2->bindValue(':user_id', $this->sender_id);
+        $statement2->execute();
+
+             /**
+         * Saldo in database van de ontvanger verhogen
+         */
+        $statement3 = $conn->prepare("UPDATE balance SET amount = amount + :amount, date_updated = NOW() WHERE user_id = :user_id");
+        $statement3->bindValue(':amount', $this->amount);
+        $statement3->bindValue(':user_id', $this->receiver_id);
+        $statement3->execute();
+
+        return true;
     }
 }
