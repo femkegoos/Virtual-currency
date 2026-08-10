@@ -32,9 +32,9 @@ if (!isset($_SESSION['id'])) {
         <label for="receiver">Ontvanger:</label><br>
         <select name="receiver" id="receiver" required>
             <option value="">Selecteer een ontvanger</option>
-                <option value="person 1">Person 1</option>
-                <option value="person 2">Person 2</option>
-                <option value="person 3">Person 3</option>
+            <?php foreach (User::getAll() as $u):?>
+                <option value="<?php echo $u['id']; ?>"><?php echo htmlspecialchars($u['username']);?></option>
+                <?php endforeach; ?>
         </select><br>
 
         <label for="amount">Bedrag:</label><br>
