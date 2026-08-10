@@ -2,6 +2,7 @@
 session_start();
 include_once(__DIR__ . '/classes/Db.php');
 include_once(__DIR__ . '/classes/User.php');
+include_once(__DIR__ . '/classes/Transaction.php');
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
