@@ -189,4 +189,11 @@ public function checkEmailExists($email) {
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $result['amount'];
     }
+    public static function getAll(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM users WHERE id != :id");
+        $statement->bindValue(':id', $_SESSION['id']);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
