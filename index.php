@@ -33,7 +33,7 @@ $maanden = [
     'November' => 'november',
     'December' => 'december'
 ];
-$datum = date('l d F Y', strtotime($transactions['date_created']));
+$datum = date('l d F Y H:i', strtotime($transactions['date_created']));
 $datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
 $datum = str_replace(array_keys($maanden), array_values($maanden), $datum);
 
