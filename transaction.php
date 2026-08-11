@@ -38,7 +38,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
       <p><b>Naar: </b><?php echo htmlspecialchars($transaction['receiver_username']);?></p>
       <p><b>Bedrag: </b><?php echo htmlspecialchars($transaction['amount']);?> XD</p>
       <p><b>Reden: </b><?php echo htmlspecialchars($transaction['reason']);?></p>
-      <p><b>Datum: </b><?php echo date('l d F Y', $transaction['date_created']); ?></p>
+      <p><b>Datum: </b><?php echo htmlspecialchars(date('l d F Y',$transaction['date_created']));?></p>
     </div>
     <a href="index.php" class="btn"> Terug naar alle transacties</a>
     </div>
