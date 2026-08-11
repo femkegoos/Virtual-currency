@@ -97,7 +97,7 @@ background-color: #2e319255;
     margin-top: 10px;
 
 }
-a {
+.container .btn a {
      text-decoration: none;
 }
 .link{
