@@ -12,7 +12,33 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
     $transaction = Transaction::getById($_GET['id'], $_SESSION['id']);
 }
 
+$dagen = [
+    'Monday' => 'maandag',
+    'Tuesday' => 'dinsdag',
+    'Wednesday' => 'woensdag',
+    'Thursday' => 'donderdag',
+    'Friday' => 'vrijdag',
+    'Saterday' => 'zaterdag',
+    'Sunday' => 'zondag'
+];
 
+$maanden = [
+    'January' => 'januari',
+    'February' => 'februari',
+    'March' => 'maart',
+    'April' => 'april',
+    'May' => 'mei',
+    'June' => 'juni',
+    'July' => 'juli',
+    'August' => 'augustus',
+    'September' => 'september',
+    'October' => 'oktober',
+    'November' => 'november',
+    'December' => 'december'
+];
+$datum = date('l d F Y H:i', strtotime($transaction['date_created']));
+$datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
+$datum = str_replace(array_keys($maanden), array_values($maanden), $datum);
 
 
 
@@ -38,7 +64,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
       <p><b>Naar: </b><?php echo htmlspecialchars($transaction['receiver_username']);?></p>
       <p><b>Bedrag: </b><?php echo htmlspecialchars($transaction['amount']);?> XD</p>
       <p><b>Reden: </b><?php echo htmlspecialchars($transaction['reason']);?></p>
-      <p><b>Datum: </b><?php echo date('l d F Y H:i', strtotime($transaction['date_created'])); ?></p><br><br>
+      <p><b>Datum: </b><?php echo $datum; ?></p><br><br>
     </div>
     <a href="index.php" class="btn"> Terug naar alle transacties</a>
     </div>
