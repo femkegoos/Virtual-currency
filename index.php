@@ -58,7 +58,7 @@ $maanden = [
     <h1>Jouw transacties</h1>
     <div class="transaction-list">
       <?php foreach ($transactions as $transaction):
-        $datum = date('l d F Y', strtotime($transactions['date_created']));
+        $datum = date('l d F Y', strtotime($transaction['date_created']));
         $datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
         $datum = str_replace(array_keys($maanden), array_values($maanden), $datum);?>
         <?php if ($transaction['sender_id'] == $_SESSION['id']):?>
