@@ -159,7 +159,7 @@ class Transaction
         return true;
     }
 
-    public static function getById($id, $userId){
+    public static function getUserTransactions($userId){
          $conn = Db::getConnection();
         $statement = $conn->prepare("SELECT transactions.*, 
         sender.username as sender_username,
@@ -167,9 +167,8 @@ class Transaction
         FROM transactions
         JOIN users as sender ON transactions.sender_id = sender.id
         JOIN users as receiver ON transactions.receiver_id = receiver.id
-        WHERE transactions.id = :id 
-        AND (transactions.sender_id = :userId OR transactions.receiver_id = :userId)");
-         $statement->bindValue(':id', $id);
+        WHERE transactions.sender_id = :userId or transactions.receiver_id = :userId
+        ORDER BY transactions.date_created DESC");
          $statement->bindValue(':userId', $userId);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
