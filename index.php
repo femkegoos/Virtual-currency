@@ -9,7 +9,33 @@ include_once(__DIR__ . '/classes/User.php');
 include_once(__DIR__ . '/classes/Transaction.php');
 $transactions = Transaction::getUserTransactions($_SESSION['id']);
 
+$dagen = [
+    'Monday' => 'maandag',
+    'Tuesday' => 'dinsdag',
+    'Wednesday' => 'woensdag',
+    'Thursday' => 'donderdag',
+    'Friday' => 'vrijdag',
+    'Saterday' => 'zaterdag',
+    'Sunday' => 'zondag'
+];
 
+$maanden = [
+    'January' => 'januari',
+    'February' => 'februari',
+    'March' => 'maart',
+    'April' => 'april',
+    'May' => 'mei',
+    'June' => 'juni',
+    'July' => 'juli',
+    'August' => 'augustus',
+    'September' => 'september',
+    'October' => 'oktober',
+    'November' => 'november',
+    'December' => 'december'
+];
+$datum = date('l d F Y', strtotime($transactions['date_created']));
+$datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
+$datum = str_replace(array_keys($maanden), array_values($maanden), $datum);
 
 ?>
 
@@ -41,7 +67,7 @@ $transactions = Transaction::getUserTransactions($_SESSION['id']);
        <?php else: ?>
        <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
         <p><?php echo htmlspecialchars($transaction['sender_username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($_SESSION['username']);?></p>
-       <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
+       <p class="transaction-datum"><?php echo $datum ?></p>
        </a>
        <?php endif; ?>
        <?php endforeach;?>
