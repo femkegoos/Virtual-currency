@@ -1,13 +1,14 @@
 <?php
 session_start();
-include_once(__DIR__ . '/classes/Db.php');
-include_once(__DIR__ . '/classes/User.php');
-include_once(__DIR__ . '/classes/Transaction.php');
-$transactions = Transaction::getUserTransactions($_SESSION['id']);
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
+include_once(__DIR__ . '/classes/Db.php');
+include_once(__DIR__ . '/classes/User.php');
+include_once(__DIR__ . '/classes/Transaction.php');
+$transactions = Transaction::getUserTransactions($_SESSION['id']);
+
 
 
 ?>
@@ -33,13 +34,13 @@ if (!isset($_SESSION['id'])) {
     <div class="transaction-list">
       <?php foreach ($transactions as $transaction):?>
         <?php if ($transaction['sender_id'] == $_SESSION['id']):?>
-       <a href="transfer.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
-        <p><?php echo htmlspecialchars($_SESSION['username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($transaction['receiver_username']);?> omdat <?php echo htmlspecialchars($transaction['reason']);?></p>
+       <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
+        <p><?php echo htmlspecialchars($_SESSION['username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($transaction['receiver_username']);?> </p>
        <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
        </a>
        <?php else: ?>
-       <a href="transfer.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
-        <p><?php echo htmlspecialchars($transaction['sender_username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($_SESSION['username']);?> omdat <?php echo htmlspecialchars($transaction['reason']);?></p>
+       <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
+        <p><?php echo htmlspecialchars($transaction['sender_username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($_SESSION['username']);?></p>
        <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
        </a>
        <?php endif; ?>
