@@ -174,4 +174,21 @@ class Transaction
         return $statement->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+     public static function getById($id, $userId){
+         $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT transactions.*, 
+        sender.username as sender_username,
+        receiver.username as receiver_username
+        FROM transactions
+        JOIN users as sender ON transactions.sender_id = sender.id
+        JOIN users as receiver ON transactions.receiver_id = receiver.id
+        WHERE transaction.id = :id
+        AND (transactions.sender_id = :userId OR transactions.receiver_id = :userId)");
+         $statement->bindValue(':id', $id);
+          $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
