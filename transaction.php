@@ -18,7 +18,7 @@ $dagen = [
     'Wednesday' => 'woensdag',
     'Thursday' => 'donderdag',
     'Friday' => 'vrijdag',
-    'Saterday' => 'zaterdag',
+    'Saturday' => 'zaterdag',
     'Sunday' => 'zondag'
 ];
 
