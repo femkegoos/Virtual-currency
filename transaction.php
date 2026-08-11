@@ -27,7 +27,16 @@ $transactions = Transaction::getUserTransactions($_SESSION['id']);
   <div class="container-account">
   <div class="container">
     <div class="content">
-   
+    <h2>Transactie 20/08/2026</h2>
+    <div class="transaction">
+      <p><b>Van:</b>Femke</p>
+      <p><b>Naar</b>Silke</p>
+      <p><b>Bedrag:</b>10 XD</p>
+      <p><b>Reden:</b>Shopping terugbetaling</p>
+      <p><b>Datum:</b>Maandag 20 augustus 2026</p>
+    </div>
+    <a href="index.php" class="btn"> Terug naar alle transacties</a>
+    </div>
   </div>
   </div>
   
