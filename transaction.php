@@ -9,7 +9,7 @@ include_once(__DIR__ . '/classes/User.php');
 include_once(__DIR__ . '/classes/Transaction.php');
 
 if (isset($_GET['id']) && !empty($_GET['id'])){
-    $transactions = Transaction::getById($_GET['id'], $_SESSION['id']);
+    $transaction = Transaction::getById($_GET['id'], $_SESSION['id']);
 }
 
 
