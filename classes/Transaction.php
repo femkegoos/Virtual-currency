@@ -183,12 +183,12 @@ class Transaction
         FROM transactions
         JOIN users as sender ON transactions.sender_id = sender.id
         JOIN users as receiver ON transactions.receiver_id = receiver.id
-        WHERE transaction.id = :id
+        WHERE transactions.id = :id
         AND (transactions.sender_id = :userId OR transactions.receiver_id = :userId)");
          $statement->bindValue(':id', $id);
           $statement->bindValue(':userId', $userId);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetch(PDO::FETCH_ASSOC);
 
     }
 }
