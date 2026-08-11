@@ -158,4 +158,20 @@ class Transaction
 
         return true;
     }
+
+    public static function getUserTransactions($userId){
+         $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT transactions.*, 
+        sender.username as sender_username,
+        receiver.username as receiver_username
+        FROM transactions
+        JOIN users as sender ON transactions.sender_id = sender.id
+        JOIN users as receiver ON transactions.receiver_id = receiver.id
+        WHERE transactions.sender_id = :userId or transactions.receiver_id = :userId
+        ORDER BY transactions.date_created DESC");
+         $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
