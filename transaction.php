@@ -7,7 +7,11 @@ if (!isset($_SESSION['id'])) {
 include_once(__DIR__ . '/classes/Db.php');
 include_once(__DIR__ . '/classes/User.php');
 include_once(__DIR__ . '/classes/Transaction.php');
-$transactions = Transaction::getUserTransactions($_SESSION['id']);
+if (isset($_GET['id']) && !empty($_GET['id'])){
+    $transactions = Transaction::getUserTransactions($_SESSION['id']);
+}
+
+
 
 
 
