@@ -2,11 +2,14 @@
 session_start();
 include_once(__DIR__ . '/classes/Db.php');
 include_once(__DIR__ . '/classes/User.php');
-
+include_once(__DIR__ . '/classes/Transaction.php');
+$transactions = Transaction::getUserTransactions($_SESSION['id']);
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ if (!isset($_SESSION['id'])) {
 <link rel="stylesheet" href="https://use.typekit.net/tkk7yuy.css">
     <title>XD Currency</title>
 </head> 
-
+                                                                              
 
 <body>
   <?php include_once(__DIR__ . '/nav.php'); ?>
@@ -28,17 +31,19 @@ if (!isset($_SESSION['id'])) {
     <h2>Welkom <?php echo htmlspecialchars($_SESSION['username']); ?><br>bij XD Currency!</h2>
     <h1>Jouw transacties</h1>
     <div class="transaction-list">
-       <a href="transfer.php?id=1" class="transaction link"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
-       <p class="transaction-datum">Maandag 9 April 2026</p>
+      <?php foreach ($transactions as $transaction):?>
+        <?php if ($transaction['sender_id'] == $_SESSION['id']):?>
+       <a href="transfer.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
+        <p><?php echo htmlspecialchars($_SESSION['username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($transaction['receiver_username']);?> omdat <?php echo htmlspecialchars($transaction['reason']);?></p>
+       <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
        </a>
-
-       <a href="transfer.php?id=1" class="transaction link"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
-       <p class="transaction-datum">Maandag 9 April 2026</p>
+       <?php else: ?>
+       <a href="transfer.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
+        <p><?php echo htmlspecialchars($transaction['sender_username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($_SESSION['username']);?> omdat <?php echo htmlspecialchars($transaction['reason']);?></p>
+       <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
        </a>
-
-       <a href="transfer.php?id=1" class="transaction link"><p>Iemand heeft 10 XD naar jou overgemaakt</p>
-       <p class="transaction-datum">Maandag 9 April 2026</p>
-       </a>
+       <?php endif; ?>
+       <?php endforeach;?>
     </div>
     </div>
   </div>
