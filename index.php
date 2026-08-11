@@ -33,7 +33,7 @@ $maanden = [
     'November' => 'november',
     'December' => 'december'
 ];
-$datum = date('l d F Y H:i', strtotime($transactions['date_created']));
+$datum = date('l d F Y', strtotime($transactions['date_created']));
 $datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
 $datum = str_replace(array_keys($maanden), array_values($maanden), $datum);
 
@@ -62,7 +62,7 @@ $datum = str_replace(array_keys($maanden), array_values($maanden), $datum);
         <?php if ($transaction['sender_id'] == $_SESSION['id']):?>
        <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
         <p><?php echo htmlspecialchars($_SESSION['username']);?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($transaction['receiver_username']);?> </p>
-       <p class="transaction-datum"><?php echo date('l d F Y', strtotime($transaction['date_created'])); ?></p>
+       <p class="transaction-datum"><?php echo $datum ?></p>
        </a>
        <?php else: ?>
        <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
