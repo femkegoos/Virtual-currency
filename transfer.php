@@ -58,7 +58,7 @@ if (!empty($_POST)) {
 
                     <label for="receiver">Ontvanger:</label><br>
                     <input type="text" name="receiver" id="receiver" required>
-                    <input class="search" type="hidden" name="receiver_id" id="receiver_id"><br>
+                    <input class="search" type="hidden" name="receiver_id" id="receiver_id"><br><br>
                     <div id="results"></div>
                     <label for="amount">Bedrag:</label><br>
                     <input type="number" name="amount" id="amount" step="0.01" min="1" required><br>
