@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION['id']);
+
 include_once(__DIR__ . '/../classes/Db.php');
 include_once(__DIR__ . '/../classes/User.php');
 
