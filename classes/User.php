@@ -196,4 +196,12 @@ public function checkEmailExists($email) {
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+    public static function getByUsername($username){
+         $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM users WHERE username LIKE :username AND id != :id");
+        $statement->bindValue(':username', '%'. $username .'%');
+        $statement->bindValue(':id', $_SESSION['id']);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
