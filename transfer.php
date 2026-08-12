@@ -89,7 +89,14 @@ if (!empty($_POST)) {
                     .then(data => {
                         results.innerHTML = "";
                         data.items.forEach(user => {
-                            results.innerHTML += '<p>${user.username}</p>';
+                            const result = document.createElement("div");
+                            result.innerHTML = user.username;
+                            result.addEventListener("click", function(){
+                                receiver.value = user.username;
+                                document.getElementById("receiver_id").value = user.id;
+                                results.innerHTML = "";
+                            });
+                            results.appendChild(result);
                         });
                     });
             } else {
