@@ -9,4 +9,10 @@ include_once(__DIR__ . '/../classes/User.php');
         echo json_encode(['status' => 'error', 'message' =>'Niet ingelogd']);
         exit;
     }
+    $balance = User::getBalanceByUserId($_SESION['id']);
+    $_SESSION['balance'] = $balance;
+
+    $response = ['status' => 'succes', 'balance' => $balance];
+    header("Content-Type: application/json");
+    echo json_encode($response);
 ?>
