@@ -179,3 +179,10 @@ h2 {
 .search{
     padding-bottom: 32px;
 }
+.search div{
+    padding:10px;
+    cursor: pointer;
+}
+.search div:hover{
+    text-decoration: underline;
+}
