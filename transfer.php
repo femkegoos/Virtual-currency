@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     try {
         $transaction = new Transaction();
         $transaction->setSender_id($_SESSION['id']);
-        $transaction->setReceiver_id($_POST['receiver']);
+        $transaction->setReceiver_id($_POST['receiver_id']);
         $transaction->setAmount($_POST['amount']);
         $transaction->setReason($_POST['reason']);
 
