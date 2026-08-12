@@ -90,7 +90,7 @@ if (!empty($_POST)) {
                         results.innerHTML = "";
                         data.items.forEach(user => {
                             const result = document.createElement("div");
-                            result.innerHTML = user.username;
+                            result.textContent = user.username;
                             result.addEventListener("click", function(){
                                 receiver.value = user.username;
                                 document.getElementById("receiver_id").value = user.id;
