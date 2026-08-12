@@ -17,7 +17,7 @@
     .then(response => response.json())
     .then(data => {
       if(data.status ==="succes"){
-        saldoElement.textContent = data.balance + "XD";
+        saldoElement.textContent = data.balance + " XD";
       }
     })
     .catch(error => console.error("Error:", error));
