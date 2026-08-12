@@ -57,13 +57,9 @@ if (!empty($_POST)){
     <form action="" method="post">
        
         <label for="receiver">Ontvanger:</label><br>
-        <select name="receiver" id="receiver" required>
-            <option value="">Selecteer een ontvanger</option>
-            <?php foreach (User::getAll() as $u):?>
-                <option value="<?php echo $u['id']; ?>"><?php echo htmlspecialchars($u['username']);?></option>
-                <?php endforeach; ?>
-        </select><br>
-
+        <input type="text" name="receiver" id="receiver" required>
+        <input type="hidden" name="receiver_id" id="receiver_id">
+        <div id="results"></div>
         <label for="amount">Bedrag:</label><br>
         <input type="number" name="amount" id="amount" step="0.01" min="1" required><br>
         <label for="reason">Reden:</label><br>
