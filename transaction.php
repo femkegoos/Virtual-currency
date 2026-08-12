@@ -8,9 +8,7 @@ include_once(__DIR__ . '/classes/Db.php');
 include_once(__DIR__ . '/classes/User.php');
 include_once(__DIR__ . '/classes/Transaction.php');
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $transaction = Transaction::getById($_GET['id'], $_SESSION['id']);
-}
+
 
 $dagen = [
     'Monday' => 'maandag',
@@ -36,7 +34,7 @@ $maanden = [
     'November' => 'november',
     'December' => 'december'
 ];
-
+$datum = "";
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $transaction = Transaction::getById($_GET['id'], $_SESSION['id']);
     if ($transaction) {
@@ -67,6 +65,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <div class="container-account">
         <div class="container">
             <div class="content">
+                <?php if (isset($transaction) && $transaction): ?>
                 <h2>Transactie <?php echo date('d/m/Y', strtotime($transaction['date_created'])); ?></h2>
                 <div class="transaction">
                     <p><b>Van: </b><?php echo htmlspecialchars($transaction['sender_username']); ?></p>
@@ -76,6 +75,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     <p><b>Datum: </b><?php echo $datum; ?></p><br><br>
                 </div>
                 <a href="index.php" class="btn"> Terug naar alle transacties</a>
+                <?php else:?>
+                    <p> Transactie is niet gevonden.</p>
+                    <?php endif; ?>
             </div>
         </div>
     </div>
