@@ -158,6 +158,14 @@ public function checkEmailExists($email) {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+public function checkUserExistsById($id) {
+    $conn = Db::getConnection();
+    $statement = $conn->prepare("SELECT id, username FROM users WHERE id = :id");
+    $statement->bindValue(':id', $id);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
 
     /**
      * Get the value of balance
