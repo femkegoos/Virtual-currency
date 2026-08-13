@@ -77,9 +77,38 @@ $maanden = [
     </div>
   </div>
   </div>
-  
-    
+  <script>
+const transactionList = document.getElementById("transactionList");
+let lastTransactionCount = <? echo count($transactions);?>;
+function renderTransaction(t){
+    const wrapper = document.createElement("a");
+    wrapper.href = "transaction.php?id=" + t.id;
+    wrapper.className = "transaction link";
+    const naam = t.isSender ? t.ownUsername : t.otherUsername;
+    const andereNaam = t.isSender ? t.otherUsername : t.ownUsername;
+    wrapper.innerHTML = '<p>${naam} heeft ${t.amount} XD gestuurd naar ${andereNaam}</p><p class="transaction-datum">${t.datum}</p>';
+    return wrapper;
+}
 
+function updateTransactions(){
+    fetch("ajax/getTransaction.php")
+    .then(response => response.json())
+    .then(data => {
+        if(data.status === "succes"){
+            if (data.transactions.length !== lastTransactionCount){
+                transactionList.innerHTML = "";
+                data.transactions.forEach(t => {
+                    transactionList.appendChild(renderTransaction(t));
+                });
+                lastTransactionCount = data.transactions.length;
+            
+        }
+    })
+}
+
+
+
+</script>
 </body>
 
 
