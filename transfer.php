@@ -11,24 +11,29 @@ if (!isset($_SESSION['id'])) {
 
 if (!empty($_POST)) {
     try {
-        $transaction = new Transaction();
-        $transaction->setSender_id($_SESSION['id']);
-
+          $receiverUser = new User();
+            $receiver = $receiverUser->checkUserExistsById($_POST['receiver_id']);
         
-        $transaction->setReceiver_id($_POST['receiver_id']);
-        $transaction->setAmount($_POST['amount']);
-        $transaction->setReason($_POST['reason']);
-
-        $balance = User::getBalanceByUserId($_SESSION['id']);
-        if ($_POST['amount'] > $balance) {
-            $error = "Je hebt niet genoeg saldo";
+        if (!$receiver) {
+            $error = "Ongeldige ontvanger geselecteerd. Kies een gebruiker uit de lijst.";
         } else {
-            if ($transaction->save()) {
-                $_SESSION['balance'] = User::getBalanceByUserId($_SESSION['id']);
-                header("Location: index.php");
-                exit;
+            $transaction = new Transaction();
+        $transaction->setSender_id($_SESSION['id']);
+            $transaction->setReceiver_id($_POST['receiver_id']);
+            $transaction->setAmount($_POST['amount']);
+            $transaction->setReason($_POST['reason']);
+
+            $balance = User::getBalanceByUserId($_SESSION['id']);
+            if ($_POST['amount'] > $balance) {
+                $error = "Je hebt niet genoeg saldo";
             } else {
-                $error = "Er is iets misgegaan! Probeer opnieuw.";
+                if ($transaction->save()) {
+                    $_SESSION['balance'] = User::getBalanceByUserId($_SESSION['id']);
+                    header("Location: index.php");
+                    exit;
+                } else {
+                    $error = "Er is iets misgegaan! Probeer opnieuw.";
+                }
             }
         }
     } catch (Exception $e) {
@@ -93,7 +98,7 @@ if (!empty($_POST)) {
                         data.items.forEach(user => {
                             const result = document.createElement("div");
                             result.textContent = user.username;
-                            result.addEventListener("click", function(){
+                            result.addEventListener("click", function() {
                                 receiver.value = user.username;
                                 document.getElementById("receiver_id").value = user.id;
                                 results.innerHTML = "";
