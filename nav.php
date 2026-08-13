@@ -23,6 +23,7 @@
     .catch(error => console.error("Error:", error));
   }
   setInterval(updateBalance, 10000);
+}
 </script>
 
   <?php endif; ?>
