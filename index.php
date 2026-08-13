@@ -80,7 +80,7 @@ $maanden = [
     </div>
     <script>
         const transactionList = document.getElementById("transactionList");
-        let lastTransactionCount = <? echo count($transactions); ?>;
+        let lastTransactionCount = <?php echo count($transactions); ?>;
 
         function renderTransaction(t) {
             const wrapper = document.createElement("a");
@@ -88,7 +88,7 @@ $maanden = [
             wrapper.className = "transaction link";
             const naam = t.isSender ? t.ownUsername : t.otherUsername;
             const andereNaam = t.isSender ? t.otherUsername : t.ownUsername;
-            wrapper.innerHTML = '<p>${naam} heeft ${t.amount} XD gestuurd naar ${andereNaam}</p><p class="transaction-datum">${t.datum}</p>';
+            wrapper.innerHTML = `<p>${naam} heeft ${t.amount} XD gestuurd naar ${andereNaam}</p><p class="transaction-datum">${t.datum}</p>`;
             return wrapper;
         }
 
@@ -108,7 +108,7 @@ $maanden = [
                 })
                 .catch(error => console.error("Error:", error));
         }
-        setInterval(updateBalance, 10000);
+        setInterval(updateTransactions, 10000);
     </script>
 </body>
 
