@@ -53,7 +53,7 @@ foreach ($transactions as $transaction) {
         'datum' => $datum,
         'isSender' => $isSender,
         'otherUsername' => htmlspecialchars($isSender ? $transaction['receiver_username'] : $transaction['sender_username']),
-        'ownerUsername' => htmlspecialchars($_SESSION['username'])
+        'ownUsername' => htmlspecialchars($_SESSION['username'])
     ];
 }
 header("Content-Type: application/json");

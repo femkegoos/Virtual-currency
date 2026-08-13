@@ -93,7 +93,7 @@ $maanden = [
         }
 
         function updateTransactions() {
-            fetch("ajax/getTransaction.php")
+            fetch("ajax/getTransactions.php")
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === "succes") {
