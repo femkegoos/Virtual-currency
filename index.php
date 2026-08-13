@@ -56,7 +56,7 @@ $maanden = [
     <div class="content">
     <h2>Welkom <?php echo htmlspecialchars($_SESSION['username']); ?><br>bij XD Currency!</h2>
     <h1>Jouw transacties</h1>
-    <div class="transaction-list">
+    <div class="transaction-list" id="transactionList">
       <?php foreach ($transactions as $transaction):
         $datum = date('l d F Y', strtotime($transaction['date_created']));
         $datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
