@@ -7,34 +7,8 @@ if (!isset($_SESSION['id'])) {
 include_once(__DIR__ . '/classes/Db.php');
 include_once(__DIR__ . '/classes/User.php');
 include_once(__DIR__ . '/classes/Transaction.php');
+include_once(__DIR__ . '/classes/Date.php');
 $transactions = Transaction::getUserTransactions($_SESSION['id']);
-
-
-$dagen = [
-    'Monday' => 'maandag',
-    'Tuesday' => 'dinsdag',
-    'Wednesday' => 'woensdag',
-    'Thursday' => 'donderdag',
-    'Friday' => 'vrijdag',
-    'Saturday' => 'zaterdag',
-    'Sunday' => 'zondag'
-];
-
-$maanden = [
-    'January' => 'januari',
-    'February' => 'februari',
-    'March' => 'maart',
-    'April' => 'april',
-    'May' => 'mei',
-    'June' => 'juni',
-    'July' => 'juli',
-    'August' => 'augustus',
-    'September' => 'september',
-    'October' => 'oktober',
-    'November' => 'november',
-    'December' => 'december'
-];
-
 
 ?>
 
@@ -59,10 +33,8 @@ $maanden = [
                 <h1>Jouw transacties</h1>
                 <div class="transaction-list" id="transactionList">
                     <?php foreach ($transactions as $transaction):
-                        $datum = date('l d F Y', strtotime($transaction['date_created']));
-                        $datum = str_replace(array_keys($dagen), array_values($dagen), $datum);
-                        $datum = str_replace(array_keys($maanden), array_values($maanden), $datum); ?>
-                        <?php if ($transaction['sender_id'] == $_SESSION['id']): ?>
+                        $datum = Date::format($transaction['date_created']);?>
+                          <?php if ($transaction['sender_id'] == $_SESSION['id']): ?>
                             <a href="transaction.php?id=<?php echo $transaction['id']; ?>" class="transaction link">
                                 <p><?php echo htmlspecialchars($_SESSION['username']); ?> heeft <?php echo htmlspecialchars($transaction['amount']); ?> XD gestuurd naar <?php echo htmlspecialchars($transaction['receiver_username']); ?> </p>
                                 <p class="transaction-datum"><?php echo $datum ?></p>
